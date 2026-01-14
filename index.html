@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ilaria Iside Sabbà</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="Images/Logo_ii.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://use.typekit.net/zsj5hgu.css">
+  <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+</head>
+
+<body>
+
+  <div id="splash">
+    <dotlottie-player src="https://lottie.host/db5ee3d3-0906-4305-9e6f-4dc161e4c887/O0UV6Bh4hi.json"
+      background="transparent" speed="1" style="width: 300px; height: 300px;" autoplay>
+    </dotlottie-player>
+  </div>
+
+  <div class="header">
+    <div class="logocontainer">
+      <a href="index.html">
+        <dotlottie-player class="logoanimation"
+          src="https://lottie.host/db5ee3d3-0906-4305-9e6f-4dc161e4c887/O0UV6Bh4hi.json" background="transparent"
+          speed="1" loop autoplay>
+        </dotlottie-player>
+      </a>
+    </div>
+    <p><a href="Progetti.html">Progetti</a></p>
+  </div>
+
+  <div class="struttura">
+
+    <div class="modulointro-reverse">
+      <div class="img-fullleft ">
+        <video class="video" autoplay muted loop playsinline>
+          <source src="Images/Intro_ii/illustrazioni_1ntro_se_2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="colonna">
+        <h1> Ciao, </h1>
+        <h3><strong>Mi chiamo Ilaria Iside Sabbà<br class="nodesktop"> e nella vita racconto storie.</strong>
+          Sono nata a Bari, ho studiato Beni
+          Culturali a Venezia e Design della comunicazione a Roma. </h3>
+        <p>Se potessi scegliere una forma, sarei: una <strong>giraffa</strong>, per vedere lontano; un <strong>libro per
+            bambini</strong>, per spiegare cose complesse con semplicità; una <strong>nicchia dei ricordi</strong>,
+          perché
+          le storie funzionano solo se restano.</p>
+      </div>
+    </div>
+
+    <div class="modulointro">
+     <h3> Mi piace camminare, fare torte, bere caffè, accumulare matite: <strong>penso che le mie idee nascano anche da
+          qui.</strong></h3>
+      <video class="video" autoplay muted loop playsinline>
+        <source src="Images/Intro_ii/video_intro_ii.mp4" type="video/mp4">
+      </video>
+    </div>
+
+  </div>
+
+
+  <div class="footer">
+    <p>Qui trovi i miei contatti :)</p>
+    <h4>
+      <a href="mailto:i.ilariasabba@libero.it">i.ilariasabba@libero.it</a> |
+      <a href="tel:+393806319766">+39 380 631 9766</a> |
+      <a href="Images/CV_Ilaria Iside Sabbà.pdf" target="_blank">CV</a>
+    </h4>
+  </div>
+  </div>
+
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const splash = document.getElementById("splash");
+      const player = document.querySelector("dotlottie-player");
+
+      // se lo splash è già stato visto, lo nascondo subito
+      if (sessionStorage.getItem("splashShown")) {
+        splash.style.display = "none";
+      } else {
+        // quando l'animazione Lottie è finita
+        player.addEventListener("complete", () => {
+          splash.classList.add("fade-out");
+
+          // dopo il fadeout (3s) lo tolgo
+          setTimeout(() => {
+            splash.style.display = "none";
+          }, 3000);
+
+          sessionStorage.setItem("splashShown", "true");
+        });
+      }
+    });
+  </script>
+
+  <script>
+    // Seleziona l'header e la sezione scura
+    const header = document.querySelector('.header');
+    const darkSection = document.querySelector('.modulo2.dark');
+
+    function controllaColoreHeader() {
+      // Calcola posizione della sezione scura
+      const rect = darkSection.getBoundingClientRect();
+      const sectionTop = rect.top + window.scrollY;
+      const sectionBottom = sectionTop + darkSection.offsetHeight;
+
+      // Calcola la posizione verticale dell'header
+      const scrollY = window.scrollY + header.offsetHeight / 2;
+
+      // Se l'header è sopra la sezione scura → aggiunge classe "dark"
+      if (scrollY >= sectionTop && scrollY <= sectionBottom) {
+        header.classList.add('dark');
+      } else {
+        header.classList.remove('dark');
+      }
+    }
+
+    // Aggiorna il colore dell'header allo scroll e al caricamento
+    window.addEventListener('scroll', controllaColoreHeader);
+    window.addEventListener('load', controllaColoreHeader);
+  </script>
+
+</body>
+
+</html>
