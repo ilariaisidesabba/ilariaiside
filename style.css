@@ -61,6 +61,16 @@ body {
     transition: transform 0.05s linear;
 }
 
+/* PAGINE PROGETTO → cursore normale */
+body.project-page {
+    cursor: auto;
+}
+
+body.project-page #cursor {
+    display: none;
+}
+
+
 
 /* Titilliumweb Light */
 @font-face {
@@ -168,8 +178,8 @@ p {
     align-items: center;
     justify-content: space-between;
     width: 100vw;
-    padding: 1.5rem;
-    background-color: transparent;
+    padding: 1.2rem;
+    background-color:#ffffff;
 }
 
 /* Cambia il colore dell'header quando si trova sopra una sezione scura */

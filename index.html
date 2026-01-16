@@ -30,10 +30,8 @@
         </dotlottie-player>
       </a>
     </div>
-    <p><a href="Progetti.html">Progetti</a></p>
+    <p><a href="#struttura">Progetti</a></p>
   </div>
-
-  <img src="Images/Intro_ii/freccia.png" alt="Scroll Down" class="scroll-arrow">
 
   <div class="struttura">
 
@@ -48,7 +46,7 @@
         <h2><strong>Mi chiamo Ilaria Iside Sabbà, in teoria sono una designer, in pratica racconto ogni volta una storia
             diversa.</strong>
         </h2>
-        <h3><strong>Come? </strong>Mi trasformo in una <i>giraffa</i>, per osservare il contesto da un'altra
+        <h3>Mi trasformo in una <i>giraffa</i>, per osservare il contesto da un'altra
           prospettiva; in un <i> libro per bimbi</i>, in modo da spiegare cose complesse con semplicità; infine, in una
           <i> nicchia dei ricordi</i>, perché un messaggio progettato con cura, non solo comunica, ma diventa memoria.
         </h3>
@@ -57,7 +55,7 @@
 
     <div class="modulointro">
       <h3> Sono nata a Bari, ho studiato Beni Culturali a Venezia e Design della comunicazione a Roma.
-        <br><strong>Mi piace camminare, fare torte, bere caffè, accumulare
+        <br class="nomobile"><strong>Mi piace camminare, fare torte, bere caffè, accumulare
           matite.</strong>
       </h3>
       <video class="video" autoplay muted loop playsinline>
@@ -65,88 +63,124 @@
       </video>
     </div>
 
-  </div>
+    <div class="progetti" id="struttura">
+      <div class="menu">
+        <div class="riga">
+          <a href="makeitmatch.html">
+            <h2>makeitmatch.</h2>
+          </a>
+          <h4>UX/UI | AR </h4>
+        </div>
+        <div class="riga">
+          <a href="Umore.html">
+            <h2>Umore</h2>
+          </a>
+          <h4>Type Design</h4>
+        </div>
+        <div class="riga">
+          <a href="Soldivori.html">
+            <h2>Soldivori</h2>
+          </a>
+          <h4>3D | Motion Design</h4>
+        </div>
+        <div class="riga">
+          <a href="Eco.html">
+            <h2>Eco</h2>
+          </a>
+          <h4> Sistemica | UX/UI</h4>
+        </div>
+        <div class="riga">
+          <a href="urania.html">
+            <h2>Urania</h2>
+          </a>
+          <h4>Editoria</h4>
+        </div>
+        <div class="riga">
+          <a href="Espressoh5pro.html">
+            <h2>espressoh.5 PRO</h2>
+          </a>
+          <h4>Advertising</h4>
+        </div>
+      </div>
+      <img src="Images/Intro_ii/illustrazione_Cosafaccio.png" alt="alavoro">
+    </div>
+
+    <div class="footer">
+      <h4><a href="Images/CV_Ilaria Iside Sabbà.pdf" target="_blank">CV</a> | Portfolio</h4>
+      <h4>
+        <a href="mailto:i.ilariasabba@gmail.com">i.ilariasabba@gmail.com</a> |
+        <a href="tel:+393806319766">+39 380 631 9766</a>
+      </h4>
+    </div>
+
+    <script>
+      const cursor = document.getElementById('cursor');
+
+      // muove il cursore solo se visibile (desktop ≥992px)
+      document.addEventListener('mousemove', e => {
+        if (window.innerWidth >= 992) {
+          const mouseX = e.clientX;
+          const mouseY = e.clientY;
+
+          cursor.style.left = mouseX + 'px';
+          cursor.style.top = mouseY + 'px';
+        }
+      });
+
+    </script>
 
 
-  <div class="footer">
-    <h4><a href="Images/CV_Ilaria Iside Sabbà.pdf" target="_blank">CV</a> | Portfolio</h4>
-    <h4>
-      <a href="mailto:i.ilariasabba@gmail.com">i.ilariasabba@gmail.com</a> |
-      <a href="tel:+393806319766">+39 380 631 9766</a>
-    </h4>
-  </div>
-  </div>
 
-  </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const splash = document.getElementById("splash");
+        const player = document.querySelector("dotlottie-player");
 
-  <script>
-const cursor = document.getElementById('cursor');
+        // se lo splash è già stato visto, lo nascondo subito
+        if (sessionStorage.getItem("splashShown")) {
+          splash.style.display = "none";
+        } else {
+          // quando l'animazione Lottie è finita
+          player.addEventListener("complete", () => {
+            splash.classList.add("fade-out");
 
-// muove il cursore solo se visibile (desktop ≥992px)
-document.addEventListener('mousemove', e => {
-  if (window.innerWidth >= 992) {
-      const mouseX = e.clientX;
-      const mouseY = e.clientY;
+            // dopo il fadeout (3s) lo tolgo
+            setTimeout(() => {
+              splash.style.display = "none";
+            }, 3000);
 
-      cursor.style.left = mouseX + 'px';
-      cursor.style.top = mouseY + 'px';
-  }
-});
+            sessionStorage.setItem("splashShown", "true");
+          });
+        }
+      });
+    </script>
 
-  </script>
+    <script>
+      // Seleziona l'header e la sezione scura
+      const header = document.querySelector('.header');
+      const darkSection = document.querySelector('.modulo2.dark');
 
+      function controllaColoreHeader() {
+        // Calcola posizione della sezione scura
+        const rect = darkSection.getBoundingClientRect();
+        const sectionTop = rect.top + window.scrollY;
+        const sectionBottom = sectionTop + darkSection.offsetHeight;
 
+        // Calcola la posizione verticale dell'header
+        const scrollY = window.scrollY + header.offsetHeight / 2;
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const splash = document.getElementById("splash");
-      const player = document.querySelector("dotlottie-player");
-
-      // se lo splash è già stato visto, lo nascondo subito
-      if (sessionStorage.getItem("splashShown")) {
-        splash.style.display = "none";
-      } else {
-        // quando l'animazione Lottie è finita
-        player.addEventListener("complete", () => {
-          splash.classList.add("fade-out");
-
-          // dopo il fadeout (3s) lo tolgo
-          setTimeout(() => {
-            splash.style.display = "none";
-          }, 3000);
-
-          sessionStorage.setItem("splashShown", "true");
-        });
+        // Se l'header è sopra la sezione scura → aggiunge classe "dark"
+        if (scrollY >= sectionTop && scrollY <= sectionBottom) {
+          header.classList.add('dark');
+        } else {
+          header.classList.remove('dark');
+        }
       }
-    });
-  </script>
 
-  <script>
-    // Seleziona l'header e la sezione scura
-    const header = document.querySelector('.header');
-    const darkSection = document.querySelector('.modulo2.dark');
-
-    function controllaColoreHeader() {
-      // Calcola posizione della sezione scura
-      const rect = darkSection.getBoundingClientRect();
-      const sectionTop = rect.top + window.scrollY;
-      const sectionBottom = sectionTop + darkSection.offsetHeight;
-
-      // Calcola la posizione verticale dell'header
-      const scrollY = window.scrollY + header.offsetHeight / 2;
-
-      // Se l'header è sopra la sezione scura → aggiunge classe "dark"
-      if (scrollY >= sectionTop && scrollY <= sectionBottom) {
-        header.classList.add('dark');
-      } else {
-        header.classList.remove('dark');
-      }
-    }
-
-    // Aggiorna il colore dell'header allo scroll e al caricamento
-    window.addEventListener('scroll', controllaColoreHeader);
-    window.addEventListener('load', controllaColoreHeader);
-  </script>
+      // Aggiorna il colore dell'header allo scroll e al caricamento
+      window.addEventListener('scroll', controllaColoreHeader);
+      window.addEventListener('load', controllaColoreHeader);
+    </script>
 
 </body>
 
