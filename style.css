@@ -469,10 +469,13 @@ a:hover {
     word-wrap: break-word;
 }
 
+.nomobile {
+        display: none;
+    }
+
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-
 
     .modulo1,
     .modulo2,
@@ -882,6 +885,10 @@ a:hover {
 
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+
+ .nomobile {
+        display: inline; /* appare su desktop */
+    }
 
     .nodesktop {
         display: none;
