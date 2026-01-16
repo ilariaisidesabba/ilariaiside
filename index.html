@@ -19,6 +19,8 @@
     </dotlottie-player>
   </div>
 
+  <div id="cursor"></div>
+
   <div class="header">
     <div class="logocontainer">
       <a href="index.html">
@@ -31,7 +33,7 @@
     <p><a href="Progetti.html">Progetti</a></p>
   </div>
 
-<img src="Images/Intro_ii/freccia.png" alt="Scroll Down" class="scroll-arrow">
+  <img src="Images/Intro_ii/freccia.png" alt="Scroll Down" class="scroll-arrow">
 
   <div class="struttura">
 
@@ -76,6 +78,22 @@
   </div>
 
   </div>
+
+  <script>
+
+    const cursor = document.getElementById('cursor');
+
+    document.addEventListener('mousemove', e => {
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+
+      // aggiorna posizione del cursore
+      cursor.style.left = mouseX + 'px';
+      cursor.style.top = mouseY + 'px';
+    });
+  </script>
+
+
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {

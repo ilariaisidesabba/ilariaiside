@@ -38,15 +38,29 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
     scroll-behavior: smooth;
-    cursor: url("Images/Intro_ii/matita_cursore.png") 23 23, auto;
 }
 
 body {
     display: block;
-    margin: 0;
-    padding: 0;
-    -webkit-font-smoothing: antialiased
+    -webkit-font-smoothing: antialiased;
+    cursor: none;
 }
+
+/* Stile del cursore personalizzato */
+#cursor {
+    position: fixed;       /* rimane fisso sulla finestra */
+    width: 70px;           /* larghezza desiderata della matita */
+    height: 70px;          /* mantiene proporzioni */
+    pointer-events: none;  /* permette di cliccare sotto */
+    background-image: url('Images/Intro_ii/matita_cursore.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 9999;         /* sopra tutti gli elementi */
+    transform: translate(-80%, -80%); /* per centrare il pivot */
+    transition: transform 0.05s linear; /* optional, per movimento fluido */
+}
+
 
 /* Titilliumweb Light */
 @font-face {
@@ -478,12 +492,22 @@ a:hover {
 }
 
 .scroll-arrow {
-  display: none;
+    display: none;
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(-60%); } /* centro verticale */
-  50% { transform: translateY(-45%); }      /* spostamento leggero verso l'alto */
+
+    0%,
+    100% {
+        transform: translateY(-60%);
+    }
+
+    /* centro verticale */
+    50% {
+        transform: translateY(-45%);
+    }
+
+    /* spostamento leggero verso l'alto */
 }
 
 
@@ -569,7 +593,7 @@ a:hover {
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
 
-.br992 {
+    .br992 {
         display: none;
     }
 
@@ -673,17 +697,23 @@ a:hover {
         display: none;
     }
 
-.scroll-arrow {
-    display: block;           
-    position: fixed;          /* resta visibile durante lo scroll */
-    top: 80%;                 /* centro verticale */
-    transform: translateY(-50%); /* corregge il posizionamento verticale */
-    right: 3rem;              /* distanza dal bordo destro */
-    width: 13px;               /* circa un terzo della dimensione originale, aggiusta come vuoi */
-    height: auto;
-    cursor: pointer;
-    animation: float 2s ease-in-out infinite; /* animazione continua */
-  }
+    .scroll-arrow {
+        display: block;
+        position: fixed;
+        /* resta visibile durante lo scroll */
+        top: 85%;
+        /* centro verticale */
+        transform: translateY(-50%);
+        /* corregge il posizionamento verticale */
+        right: 3rem;
+        /* distanza dal bordo destro */
+        width: 11px;
+        /* circa un terzo della dimensione originale, aggiusta come vuoi */
+        height: auto;
+        cursor: pointer;
+        animation: float 2s ease-in-out infinite;
+        /* animazione continua */
+    }
 
     h1 {
         font-size: 5rem;
@@ -944,10 +974,12 @@ a:hover {
         display: none;
     }
 
-  .scroll-arrow {
-    right: 3rem;             /* più spazio a destra sui desktop grandi */
-    width: 15px;               /* leggermente più grande se vuoi */
-  }
+    .scroll-arrow {
+        right: 3rem;
+        /* più spazio a destra sui desktop grandi */
+        width: 11px;
+        /* leggermente più grande se vuoi */
+    }
 
     h1 {
         font-size: 6rem;
