@@ -477,6 +477,15 @@ a:hover {
     display: none;
 }
 
+.scroll-arrow {
+  display: none;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(-60%); } /* centro verticale */
+  50% { transform: translateY(-45%); }      /* spostamento leggero verso l'alto */
+}
+
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
@@ -663,6 +672,18 @@ a:hover {
     .nomobile {
         display: none;
     }
+
+.scroll-arrow {
+    display: block;           
+    position: fixed;          /* resta visibile durante lo scroll */
+    top: 80%;                 /* centro verticale */
+    transform: translateY(-50%); /* corregge il posizionamento verticale */
+    right: 3rem;              /* distanza dal bordo destro */
+    width: 13px;               /* circa un terzo della dimensione originale, aggiusta come vuoi */
+    height: auto;
+    cursor: pointer;
+    animation: float 2s ease-in-out infinite; /* animazione continua */
+  }
 
     h1 {
         font-size: 5rem;
@@ -922,6 +943,11 @@ a:hover {
     .nodesktop {
         display: none;
     }
+
+  .scroll-arrow {
+    right: 3rem;             /* più spazio a destra sui desktop grandi */
+    width: 15px;               /* leggermente più grande se vuoi */
+  }
 
     h1 {
         font-size: 6rem;
