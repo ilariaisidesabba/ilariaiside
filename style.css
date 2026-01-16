@@ -43,22 +43,22 @@ body {
 body {
     display: block;
     -webkit-font-smoothing: antialiased;
-    cursor: none;
+    cursor: auto;  /* normale sul mobile, niente cursore JS */
 }
 
-/* Stile del cursore personalizzato */
 #cursor {
-    position: fixed;       /* rimane fisso sulla finestra */
-    width: 70px;           /* larghezza desiderata della matita */
-    height: 70px;          /* mantiene proporzioni */
-    pointer-events: none;  /* permette di cliccare sotto */
+    display: none; /* nascondiamo il cursore per mobile */
+    position: fixed;       
+    width: 70px;           
+    height: 70px;          
+    pointer-events: none;  
     background-image: url('Images/Intro_ii/matita_cursore.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    z-index: 9999;         /* sopra tutti gli elementi */
-    transform: translate(-80%, -80%); /* per centrare il pivot */
-    transition: transform 0.05s linear; /* optional, per movimento fluido */
+    z-index: 9999;         
+    transform: translate(-80%, -80%); 
+    transition: transform 0.05s linear;
 }
 
 
@@ -592,6 +592,14 @@ a:hover {
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+
+body {
+        cursor: none;   /* nasconde cursore predefinito */
+    }
+
+    #cursor {
+        display: block; /* mostra cursore personalizzato */
+    }
 
     .br992 {
         display: none;

@@ -80,17 +80,19 @@
   </div>
 
   <script>
+const cursor = document.getElementById('cursor');
 
-    const cursor = document.getElementById('cursor');
-
-    document.addEventListener('mousemove', e => {
+// muove il cursore solo se visibile (desktop ≥992px)
+document.addEventListener('mousemove', e => {
+  if (window.innerWidth >= 992) {
       const mouseX = e.clientX;
       const mouseY = e.clientY;
 
-      // aggiorna posizione del cursore
       cursor.style.left = mouseX + 'px';
       cursor.style.top = mouseY + 'px';
-    });
+  }
+});
+
   </script>
 
 
