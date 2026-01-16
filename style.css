@@ -473,6 +473,10 @@ a:hover {
     display: none;
 }
 
+.br992 {
+    display: none;
+}
+
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
@@ -556,6 +560,18 @@ a:hover {
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
 
+.br992 {
+        display: none;
+    }
+
+    .nodesktop {
+        display: none;
+    }
+
+    .nomobile {
+        display: none;
+    }
+
     .modulo1,
     .modulo2,
     .modulo3,
@@ -636,7 +652,15 @@ a:hover {
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
 
+    .br992 {
+        display: inline;
+    }
+
     .nodesktop {
+        display: none;
+    }
+
+    .nomobile {
         display: none;
     }
 
@@ -885,6 +909,10 @@ a:hover {
 
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+
+    .br992 {
+        display: none;
+    }
 
     .nomobile {
         display: inline;
