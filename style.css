@@ -188,6 +188,9 @@ p {
 }
 
 .footer {
+    background-color: #fff;
+        z-index: 1;
+        position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: left;
@@ -510,6 +513,9 @@ a:hover {
     }
 
     .footer {
+        background-color: #fff;
+        z-index: 1;
+        position: fixed;
         display: flex;
         flex-direction: column;
         justify-content: left;
@@ -707,6 +713,9 @@ a:hover {
     }
 
     .footer {
+        background-color: #fff;
+        z-index: 1;
+        position: fixed;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -955,6 +964,9 @@ a:hover {
     }
 
     .footer {
+        background-color: #fff;
+        z-index: 1;
+        position: fixed;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
