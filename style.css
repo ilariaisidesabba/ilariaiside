@@ -978,7 +978,7 @@ a:hover {
     .colonna {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: 2rem;
         justify-content: flex-start;
         align-items: flex-start;
         min-width: 30vw;
@@ -1257,7 +1257,7 @@ a:hover {
     .colonna {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: 2rem;
         justify-content: flex-start;
         align-items: flex-start;
         min-width: 30vw;
