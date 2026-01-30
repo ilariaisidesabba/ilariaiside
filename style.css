@@ -431,17 +431,25 @@ a:hover {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100%;
     box-sizing: border-box;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-bottom: 4rem;
 }
 
 .video {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
-    /* o "contain" se vuoi che non venga tagliato */
+    height: auto;
 }
 
+.video-container video {
+    width: 100%;
+    height: auto;
+    display: block; /* IMPORTANTISSIMO */
+    background: black;
+    accent-color: #F99003;
+    aspect-ratio: 16 / 9;
+}
 
 .play-btn {
     position: absolute;
@@ -607,6 +615,12 @@ a:hover {
         max-width: 45vw;
     }
 
+.video-container {
+        padding-left: 8rem;
+        padding-right: 8rem;
+        padding-bottom: 2rem;
+    }
+
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -708,6 +722,12 @@ a:hover {
         padding-top: 2rem;
         max-width: 50vw;
         width: 40vw;
+    }
+
+ .video-container {
+        padding-left: 10rem;
+        padding-right: 10rem;
+        padding-bottom: 4rem;
     }
 
 }
@@ -905,6 +925,7 @@ a:hover {
     .modulo1 video {
         position: relative;
         width: 100%;
+        height: auto;
     }
 
     .modulo1--reverse {
@@ -1175,14 +1196,8 @@ a:hover {
         max-width: 40vw;
     }
 
-    .img-fullleft video {
-        min-width: 40vw;
-        max-width: 40vw;
-    }
-
     .modulo1 video {
         position: relative;
-        width: 100%;
     }
 
     .modulo1--reverse {
@@ -1281,6 +1296,3 @@ a:hover {
     }
 
 }
-
-/* XX-Large devices (larger desktops, 1400px and up) */
-@media (min-width: 1400px) {}
