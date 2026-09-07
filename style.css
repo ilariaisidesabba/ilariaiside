@@ -445,7 +445,8 @@ a:hover {
 .video-container video {
     width: 100%;
     height: auto;
-    display: block; /* IMPORTANTISSIMO */
+    display: block;
+    /* IMPORTANTISSIMO */
     background: black;
     accent-color: #F99003;
     aspect-ratio: 16 / 9;
@@ -615,7 +616,7 @@ a:hover {
         max-width: 45vw;
     }
 
-.video-container {
+    .video-container {
         padding-left: 8rem;
         padding-right: 8rem;
         padding-bottom: 2rem;
@@ -724,7 +725,7 @@ a:hover {
         width: 40vw;
     }
 
- .video-container {
+    .video-container {
         padding-left: 10rem;
         padding-right: 10rem;
         padding-bottom: 4rem;
@@ -942,7 +943,7 @@ a:hover {
         margin-top: 3rem;
     }
 
- .riga {
+    .riga {
         display: flex;
         flex-direction: row;
         justify-content: first baseline;
@@ -950,6 +951,7 @@ a:hover {
         align-items: baseline;
         width: 40vw;
     }
+
     .menu {
         display: flex;
         flex-direction: column;
@@ -993,7 +995,14 @@ a:hover {
     .descrizione {
         flex-direction: row;
         gap: 6rem;
+    }
 
+    .descrizione>* {
+        flex: 1;
+    }
+
+    .descrizione video {
+        max-width: 40%;
     }
 
     .colonna {
@@ -1266,8 +1275,16 @@ a:hover {
     .descrizione {
         flex-direction: row;
         gap: 6rem;
-
     }
+
+    .descrizione>* {
+        flex: 1;
+    }
+
+    .descrizione video {
+        max-width: 40%;
+    }
+
 
     .colonna {
         display: flex;
