@@ -217,7 +217,7 @@ p {
     padding-right: 1.5rem;
     gap: 0.3rem;
     width: 100%;
-    background-color: #ffffff91;
+    background-color: #ffffff;
 }
 
 a {
@@ -555,7 +555,7 @@ a:hover {
         width: 100vw;
         padding-left: 2rem;
         padding-bottom: 1rem;
-         padding-right: 2rem;
+        padding-right: 2rem;
         padding-top: 1rem;
         background-color: transparent;
     }
