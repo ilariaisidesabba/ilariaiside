@@ -530,6 +530,99 @@ a:hover {
 }
 
 
+/* SELETTORE LINGUA IT | EN */
+
+
+/* SELETTORE LINGUA */
+
+.language-switch {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.language-switch p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+}
+
+.language-switch button {
+    position: relative;
+    z-index: 1;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: #000000;
+    font: inherit;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+/* Pallino arancione mobile */
+.language-indicator {
+    position: absolute;
+    z-index: 0;
+    top: -10px;
+    left: 10PX;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #F99003;
+    pointer-events: none;
+    transform: translateX(0);
+}
+
+/* Lingua selezionata */
+.language-switch button.active {
+    color: #F99003;
+}
+
+/* Piccolo salto quando passi con il mouse 
+.language-switch button:hover {
+    animation: languageJump 0.35s ease-out;
+}*/
+
+/* Separatore */
+.language-switch p span {
+    color: #000000;
+}
+
+/* Animazione hover */
+@keyframes languageJump {
+    0% {
+        transform: translateY(-2px) scale(1);
+    }
+
+    35% {
+        transform: translateY(-7px) scale(1.05);
+    }
+
+    65% {
+        transform: translateY(0) scale(0.97);
+    }
+
+    100% {
+        transform: translateY(-2px) scale(1);
+    }
+}
+
+/* Accessibilità */
+@media (prefers-reduced-motion: reduce) {
+    .language-switch button {
+        animation: none !important;
+        transition: none;
+    }
+}
+
+
+
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
 
@@ -1147,6 +1240,8 @@ a:hover {
         /* dimensione tipica di un <p> */
         font-weight: 100;
     }
+
+
 
     .modulointro {
         display: flex;

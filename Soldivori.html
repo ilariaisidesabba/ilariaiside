@@ -21,6 +21,14 @@
                 </dotlottie-player>
             </a>
         </div>
+        <div class="language-switch">
+            <span class="language-indicator" aria-hidden="true"></span>
+            <p>
+                <button id="lang-it" type="button" class="active">IT</button>
+                <span>|</span>
+                <button id="lang-en" type="button">EN</button>
+            </p>
+        </div>
         <p><a href="index.html#struttura">Progetti</a></p>
     </div>
 
@@ -53,15 +61,119 @@
         </div>
     </div>
 
-<script>
-const video = document.querySelector('.video');
-const btn = document.querySelector('.play-btn');
+    <script>
+        const video = document.querySelector('.video');
+        const btn = document.querySelector('.play-btn');
 
-btn.addEventListener('click', () => {
-  video.play();
-  btn.style.display = 'none';
-});
-</script>
+        btn.addEventListener('click', () => {
+            video.play();
+            btn.style.display = 'none';
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const buttonIT = document.getElementById("lang-it");
+            const buttonEN = document.getElementById("lang-en");
+            const indicator = document.querySelector(".language-indicator");
+
+            const elementiTraducibili = document.querySelectorAll("[data-it][data-en]");
+
+            elementiTraducibili.forEach(elemento => {
+                elemento.dataset.originalIt = elemento.innerHTML;
+            });
+
+            // Cambia lingua e aggiorna il pulsante selezionato
+            function cambiaLingua(lingua) {
+                document.documentElement.lang = lingua;
+
+                elementiTraducibili.forEach(elemento => {
+                    if (lingua === "it") {
+                        elemento.innerHTML = elemento.dataset.originalIt;
+                    } else {
+                        elemento.innerHTML = elemento.getAttribute("data-en");
+                    }
+                });
+
+                buttonIT.classList.toggle("active", lingua === "it");
+                buttonEN.classList.toggle("active", lingua === "en");
+            }
+
+            // Calcola la posizione del pallino rispetto al contenitore
+            function posizionePallino(pulsante) {
+                const contenitore = indicator.parentElement;
+                const rectContenitore = contenitore.getBoundingClientRect();
+                const rectPulsante = pulsante.getBoundingClientRect();
+
+                return rectPulsante.left - rectContenitore.left;
+            }
+
+            let posizioneAttuale = posizionePallino(buttonIT);
+            let animazionePallino = null;
+
+            indicator.style.transform = `translateX(${posizioneAttuale}px)`;
+
+            function selezionaLingua(lingua) {
+                const pulsante = lingua === "it" ? buttonIT : buttonEN;
+
+                // Se è già selezionata, non serve animare
+                if (pulsante.classList.contains("active")) return;
+
+                cambiaLingua(lingua);
+
+                const nuovaPosizione = posizionePallino(pulsante);
+
+                if (animazionePallino) {
+                    animazionePallino.cancel();
+                }
+
+                // Il pallino si sposta con un piccolo arco
+                animazionePallino = indicator.animate(
+                    [
+                        {
+                            transform: `translateX(${posizioneAttuale}px) translateY(0)`
+                        },
+                        {
+                            transform: `translateX(${(posizioneAttuale + nuovaPosizione) / 2}px) translateY(-7px)`,
+                            offset: 0.5
+                        },
+                        {
+                            transform: `translateX(${nuovaPosizione}px) translateY(0)`
+                        }
+                    ],
+                    {
+                        duration: 400,
+                        easing: "cubic-bezier(0.22, 1, 0.36, 1)"
+                    }
+                );
+
+                posizioneAttuale = nuovaPosizione;
+
+                animazionePallino.onfinish = () => {
+                    indicator.style.transform = `translateX(${posizioneAttuale}px)`;
+                    animazionePallino.cancel();
+                    animazionePallino = null;
+                };
+            }
+
+            buttonIT.addEventListener("click", () => selezionaLingua("it"));
+            buttonEN.addEventListener("click", () => selezionaLingua("en"));
+
+            // Mantiene il pallino allineato quando cambia la larghezza della finestra
+            window.addEventListener("resize", () => {
+                if (animazionePallino) {
+                    animazionePallino.cancel();
+                    animazionePallino = null;
+                }
+
+                const linguaAttuale =
+                    document.documentElement.lang === "en" ? buttonEN : buttonIT;
+
+                posizioneAttuale = posizionePallino(linguaAttuale);
+                indicator.style.transform = `translateX(${posizioneAttuale}px)`;
+            });
+        });
+    </script>
 
 
 </body>

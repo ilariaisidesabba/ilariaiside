@@ -23,7 +23,15 @@
                 </dotlottie-player>
             </a>
         </div>
-        <p><a href="index.html#struttura">Progetti</a></p>
+        <div class="language-switch">
+            <span class="language-indicator" aria-hidden="true"></span>
+            <p>
+                <button id="lang-it" type="button" class="active">IT</button>
+                <span>|</span>
+                <button id="lang-en" type="button">EN</button>
+            </p>
+        </div>
+        <p><a href="index.html#struttura" data-it="Progetti" data-en="Works">Progetti</a></p>
     </div>
 
     <div class="struttura">
@@ -34,7 +42,9 @@
                     <h2>Umore</h2>
                     <h4>Type Design</h4>
                 </div>
-                <p>Il progetto propone una font in grado
+                <p data-it=""
+                    data-en="The project proposes a typeface that captures the veins of plants and the moody forms they create, both at the micro level, in the design of individual glyphs, and at the macro level, in how those glyphs are combined. Shaped by millions of years of evolution, these patterns vary even within a single species, so much so that every plant can be said to have a different mood from the next.">
+                    Il progetto propone una font in grado
                     di restituire le nervature delle piante e le forme
                     umorali che queste creano, sia a livello
                     microscopico nella definizione dei singoli glifi,
@@ -49,9 +59,11 @@
 
         <div class="modulo3">
             <div class="descrizione">
-                <h2>umore /u·mó·re/<br>1. Linfa delle piante <br>o liquido biologico <br>2. Disposizione o stato d’animo
-                    particolare, <br>ma transitorio</h2>
-                <p>Anche le piante - come alcune persone - possono definirsi umorali e lunatiche.</p>
+                <h2 data-it=""
+                    data-en="The Italian word <i>umore</i> has a double meaning. It refers to the sap of plants or other biological fluids, but also to a particular, fleeting mood or state of mind.">
+                    umore /u·mó·re/<br>1. Linfa delle piante o liquido biologico <br>2. Disposizione o stato d’animo
+                    particolare, ma transitorio</h2>
+                <p data-it="" data-en="Plants - like some people - can be described as moody and capricious.">Anche le piante - come alcune persone - possono definirsi umorali e lunatiche.</p>
             </div>
             <img src="Images/Progetti_ii/Umore/umore_mood.webp" alt="umore_mood">
         </div>
@@ -59,10 +71,13 @@
         <div class="modulo3">
             <div class="descrizione">
                 <div class="colonna1">
-                    <h4>FASE 1</h4>
-                    <h3><strong>Definizione delle unità</strong></h3>
+                    <h4 data-it="" data-en="STEP 1">FASE 1</h4>
+                    <h3 data-it="" data-en="<strong>Defining the units</strong>"><strong>Definizione delle
+                            unità</strong></h3>
                 </div>
-                <h4>Le infinite forme organiche
+                <h4 data-it=""
+                    data-en="The infinite organic shapes that can be found on leaves have been distilled into a limited number of silhouettes featuring the most common and recurring curves.">
+                    Le infinite forme organiche
                     che è possibile trovare sulle foglie
                     sono state sintetizzate in un numero
                     ristretto di sagome che presentano
@@ -79,12 +94,15 @@
         <div class="modulo3">
             <div class="descrizione">
                 <div class="colonna1">
-                    <h4>FASE 2</h4>
-                    <h3><strong>Definizione delle forme</strong></h3>
+                    <h4 data-it="" data-en="STEP 2">FASE 2</h4>
+                    <h3 data-it="" data-en="<strong>Defining the shapes</strong>"><strong>Definizione delle
+                            forme</strong></h3>
                 </div>
-                <h4>Tutti i glifi sono inscritti in un quadrato, suddiviso
+                <h4 data-it=""
+                    data-en="All the glyphs are inscribed in a square divided horizontally into two parts, leaving a constant central gap - the <i>vein</i> - that is the same for every glyph.">
+                    Tutti i glifi sono inscritti in un quadrato, suddiviso
                     orizzontalmente in due parti, in modo da mantenere
-                    un vuoto - ossia la nervatura - centrale costante per tutti.</h4>
+                    un vuoto - ossia la <i>nervatura</i> - centrale costante per tutti.</h4>
             </div>
             <div class="colonna">
                 <video class="video" autoplay muted loop playsinline preload="metadata" poster="preview.webp">
@@ -97,10 +115,13 @@
         <div class="modulo3">
             <div class="descrizione">
                 <div class="colonna1">
-                    <h4>FASE 3</h4>
-                    <h3><strong>Costruzione dei glifi</strong></h3>
+                    <h4 data-it="" data-en="STEP 3">FASE 3</h4>
+                    <h3 data-it="" data-en="<strong>Building the glyphs</strong>"><strong>Costruzione dei glifi</strong>
+                    </h3>
                 </div>
-                <h4>Dalle unità iniziali e dal loro accostamento sono state plasmate
+                <h4 data-it=""
+                    data-en="The shapes of the glyphs emerge from the initial units and how they are combined.">Dalle
+                    unità iniziali e dal loro accostamento sono state plasmate
                     le forme che compongono i singoli glifi e le curve della nervatura.</h4>
             </div>
             <div class="colonna">
@@ -114,16 +135,18 @@
         </div>
 
         <div class="modulo3 modulo-font">
-            <h2>E tu di che umore sei?</h2>
-            <input type="text" id="fontInput" placeholder="Scrivi qui il tuo umore..." autocomplete="off">
-            <div id="fontOutput">
-            </div>
+            <h2 data-it="" data-en="And you, what’s your <i>mood</i> (<i>umore</i>)?">E tu di che <i>umore</i> sei?</h2>
+            <input type="text" id="fontInput"
+                placeholder="felice, confuso, sognante, caotico, selvaggio, malinconico, in fiore..."
+                data-placeholder-it="Scrivi qui il tuo umore..."
+                data-placeholder-en="happy, lost, dreamy, chaotic, wild, blue, blooming..." autocomplete="off">
         </div>
+    </div>
 
 
-        <video class="video" autoplay muted loop playsinline preload="metadata" poster="preview.webp">
-            <source src="Images/Progetti_ii/Umore/umore_pattern_video.mp4" type="video/mp4">
-        </video>
+    <video class="video" autoplay muted loop playsinline preload="metadata" poster="preview.webp">
+        <source src="Images/Progetti_ii/Umore/umore_pattern_video.mp4" type="video/mp4">
+    </video>
     </div>
 
     <script>
@@ -132,6 +155,116 @@
 
         input.addEventListener('input', () => {
             output.textContent = input.value || 'Scrivi qualcosa…';
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const buttonIT = document.getElementById("lang-it");
+            const buttonEN = document.getElementById("lang-en");
+            const indicator = document.querySelector(".language-indicator");
+
+            const elementiTraducibili = document.querySelectorAll("[data-it][data-en]");
+
+            elementiTraducibili.forEach(elemento => {
+                elemento.dataset.originalIt = elemento.innerHTML;
+            });
+
+            // Cambia lingua e aggiorna il pulsante selezionato
+            function cambiaLingua(lingua) {
+                document.documentElement.lang = lingua;
+
+                elementiTraducibili.forEach(elemento => {
+                    if (lingua === "it") {
+                        elemento.innerHTML = elemento.dataset.originalIt;
+                    } else {
+                        elemento.innerHTML = elemento.getAttribute("data-en");
+                    }
+                });
+                const inputUmore = document.getElementById("fontInput");
+
+                if (inputUmore) {
+                    inputUmore.placeholder = inputUmore.getAttribute(
+                        `data-placeholder-${lingua}`
+                    );
+                }
+                buttonIT.classList.toggle("active", lingua === "it");
+                buttonEN.classList.toggle("active", lingua === "en");
+            }
+
+            // Calcola la posizione del pallino rispetto al contenitore
+            function posizionePallino(pulsante) {
+                const contenitore = indicator.parentElement;
+                const rectContenitore = contenitore.getBoundingClientRect();
+                const rectPulsante = pulsante.getBoundingClientRect();
+
+                return rectPulsante.left - rectContenitore.left;
+            }
+
+            let posizioneAttuale = posizionePallino(buttonIT);
+            let animazionePallino = null;
+
+            indicator.style.transform = `translateX(${posizioneAttuale}px)`;
+
+            function selezionaLingua(lingua) {
+                const pulsante = lingua === "it" ? buttonIT : buttonEN;
+
+                // Se è già selezionata, non serve animare
+                if (pulsante.classList.contains("active")) return;
+
+                cambiaLingua(lingua);
+
+                const nuovaPosizione = posizionePallino(pulsante);
+
+                if (animazionePallino) {
+                    animazionePallino.cancel();
+                }
+
+                // Il pallino si sposta con un piccolo arco
+                animazionePallino = indicator.animate(
+                    [
+                        {
+                            transform: `translateX(${posizioneAttuale}px) translateY(0)`
+                        },
+                        {
+                            transform: `translateX(${(posizioneAttuale + nuovaPosizione) / 2}px) translateY(-7px)`,
+                            offset: 0.5
+                        },
+                        {
+                            transform: `translateX(${nuovaPosizione}px) translateY(0)`
+                        }
+                    ],
+                    {
+                        duration: 400,
+                        easing: "cubic-bezier(0.22, 1, 0.36, 1)"
+                    }
+                );
+
+                posizioneAttuale = nuovaPosizione;
+
+                animazionePallino.onfinish = () => {
+                    indicator.style.transform = `translateX(${posizioneAttuale}px)`;
+                    animazionePallino.cancel();
+                    animazionePallino = null;
+                };
+            }
+
+            buttonIT.addEventListener("click", () => selezionaLingua("it"));
+            buttonEN.addEventListener("click", () => selezionaLingua("en"));
+
+            // Mantiene il pallino allineato quando cambia la larghezza della finestra
+            window.addEventListener("resize", () => {
+                if (animazionePallino) {
+                    animazionePallino.cancel();
+                    animazionePallino = null;
+                }
+
+                const linguaAttuale =
+                    document.documentElement.lang === "en" ? buttonEN : buttonIT;
+
+                posizioneAttuale = posizionePallino(linguaAttuale);
+                indicator.style.transform = `translateX(${posizioneAttuale}px)`;
+            });
         });
     </script>
 
