@@ -30,15 +30,15 @@
         </dotlottie-player>
       </a>
     </div>
-    
-<div class="language-switch">
-    <span class="language-indicator" aria-hidden="true"></span>
-    <p>
+
+    <div class="language-switch">
+      <span class="language-indicator" aria-hidden="true"></span>
+      <p>
         <button id="lang-it" type="button" class="active">IT</button>
         <span>|</span>
         <button id="lang-en" type="button">EN</button>
-    </p>
-</div>
+      </p>
+    </div>
 
     <p>
       <a href="#struttura" data-it="Progetti" data-en="Works">Progetti</a>
@@ -119,12 +119,6 @@
             <h2>Urania</h2>
           </a>
           <h4 data-it="Editoria" data-en="Editorial Design">Editoria</h4>
-        </div>
-        <div class="riga">
-          <a href="Espressoh5pro.html">
-            <h2>espressoh.5 PRO</h2>
-          </a>
-          <h4 data-it="Advertising" data-en="Advertising">Advertising</h4>
         </div>
       </div>
       <img class="nomobile" src="Images/Intro_ii/illustrazione_Cosafaccio.png" alt="alavoro">
@@ -210,109 +204,109 @@
       window.addEventListener('load', controllaColoreHeader);
     </script>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const buttonIT = document.getElementById("lang-it");
-    const buttonEN = document.getElementById("lang-en");
-    const indicator = document.querySelector(".language-indicator");
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const buttonIT = document.getElementById("lang-it");
+        const buttonEN = document.getElementById("lang-en");
+        const indicator = document.querySelector(".language-indicator");
 
-    const elementiTraducibili = document.querySelectorAll("[data-it][data-en]");
+        const elementiTraducibili = document.querySelectorAll("[data-it][data-en]");
 
-    elementiTraducibili.forEach(elemento => {
-      elemento.dataset.originalIt = elemento.innerHTML;
-    });
+        elementiTraducibili.forEach(elemento => {
+          elemento.dataset.originalIt = elemento.innerHTML;
+        });
 
-    // Cambia lingua e aggiorna il pulsante selezionato
-    function cambiaLingua(lingua) {
-      document.documentElement.lang = lingua;
+        // Cambia lingua e aggiorna il pulsante selezionato
+        function cambiaLingua(lingua) {
+          document.documentElement.lang = lingua;
 
-      elementiTraducibili.forEach(elemento => {
-        if (lingua === "it") {
-          elemento.innerHTML = elemento.dataset.originalIt;
-        } else {
-          elemento.innerHTML = elemento.getAttribute("data-en");
+          elementiTraducibili.forEach(elemento => {
+            if (lingua === "it") {
+              elemento.innerHTML = elemento.dataset.originalIt;
+            } else {
+              elemento.innerHTML = elemento.getAttribute("data-en");
+            }
+          });
+
+          buttonIT.classList.toggle("active", lingua === "it");
+          buttonEN.classList.toggle("active", lingua === "en");
         }
-      });
 
-      buttonIT.classList.toggle("active", lingua === "it");
-      buttonEN.classList.toggle("active", lingua === "en");
-    }
+        // Calcola la posizione del pallino rispetto al contenitore
+        function posizionePallino(pulsante) {
+          const contenitore = indicator.parentElement;
+          const rectContenitore = contenitore.getBoundingClientRect();
+          const rectPulsante = pulsante.getBoundingClientRect();
 
-    // Calcola la posizione del pallino rispetto al contenitore
-    function posizionePallino(pulsante) {
-      const contenitore = indicator.parentElement;
-      const rectContenitore = contenitore.getBoundingClientRect();
-      const rectPulsante = pulsante.getBoundingClientRect();
-
-      return rectPulsante.left - rectContenitore.left;
-    }
-
-    let posizioneAttuale = posizionePallino(buttonIT);
-    let animazionePallino = null;
-
-    indicator.style.transform = `translateX(${posizioneAttuale}px)`;
-
-    function selezionaLingua(lingua) {
-      const pulsante = lingua === "it" ? buttonIT : buttonEN;
-
-      // Se è già selezionata, non serve animare
-      if (pulsante.classList.contains("active")) return;
-
-      cambiaLingua(lingua);
-
-      const nuovaPosizione = posizionePallino(pulsante);
-
-      if (animazionePallino) {
-        animazionePallino.cancel();
-      }
-
-      // Il pallino si sposta con un piccolo arco
-      animazionePallino = indicator.animate(
-        [
-          {
-            transform: `translateX(${posizioneAttuale}px) translateY(0)`
-          },
-          {
-            transform: `translateX(${(posizioneAttuale + nuovaPosizione) / 2}px) translateY(-7px)`,
-            offset: 0.5
-          },
-          {
-            transform: `translateX(${nuovaPosizione}px) translateY(0)`
-          }
-        ],
-        {
-          duration: 400,
-          easing: "cubic-bezier(0.22, 1, 0.36, 1)"
+          return rectPulsante.left - rectContenitore.left;
         }
-      );
 
-      posizioneAttuale = nuovaPosizione;
+        let posizioneAttuale = posizionePallino(buttonIT);
+        let animazionePallino = null;
 
-      animazionePallino.onfinish = () => {
         indicator.style.transform = `translateX(${posizioneAttuale}px)`;
-        animazionePallino.cancel();
-        animazionePallino = null;
-      };
-    }
 
-    buttonIT.addEventListener("click", () => selezionaLingua("it"));
-    buttonEN.addEventListener("click", () => selezionaLingua("en"));
+        function selezionaLingua(lingua) {
+          const pulsante = lingua === "it" ? buttonIT : buttonEN;
 
-    // Mantiene il pallino allineato quando cambia la larghezza della finestra
-    window.addEventListener("resize", () => {
-      if (animazionePallino) {
-        animazionePallino.cancel();
-        animazionePallino = null;
-      }
+          // Se è già selezionata, non serve animare
+          if (pulsante.classList.contains("active")) return;
 
-      const linguaAttuale =
-        document.documentElement.lang === "en" ? buttonEN : buttonIT;
+          cambiaLingua(lingua);
 
-      posizioneAttuale = posizionePallino(linguaAttuale);
-      indicator.style.transform = `translateX(${posizioneAttuale}px)`;
-    });
-  });
-</script>
+          const nuovaPosizione = posizionePallino(pulsante);
+
+          if (animazionePallino) {
+            animazionePallino.cancel();
+          }
+
+          // Il pallino si sposta con un piccolo arco
+          animazionePallino = indicator.animate(
+            [
+              {
+                transform: `translateX(${posizioneAttuale}px) translateY(0)`
+              },
+              {
+                transform: `translateX(${(posizioneAttuale + nuovaPosizione) / 2}px) translateY(-7px)`,
+                offset: 0.5
+              },
+              {
+                transform: `translateX(${nuovaPosizione}px) translateY(0)`
+              }
+            ],
+            {
+              duration: 400,
+              easing: "cubic-bezier(0.22, 1, 0.36, 1)"
+            }
+          );
+
+          posizioneAttuale = nuovaPosizione;
+
+          animazionePallino.onfinish = () => {
+            indicator.style.transform = `translateX(${posizioneAttuale}px)`;
+            animazionePallino.cancel();
+            animazionePallino = null;
+          };
+        }
+
+        buttonIT.addEventListener("click", () => selezionaLingua("it"));
+        buttonEN.addEventListener("click", () => selezionaLingua("en"));
+
+        // Mantiene il pallino allineato quando cambia la larghezza della finestra
+        window.addEventListener("resize", () => {
+          if (animazionePallino) {
+            animazionePallino.cancel();
+            animazionePallino = null;
+          }
+
+          const linguaAttuale =
+            document.documentElement.lang === "en" ? buttonEN : buttonIT;
+
+          posizioneAttuale = posizionePallino(linguaAttuale);
+          indicator.style.transform = `translateX(${posizioneAttuale}px)`;
+        });
+      });
+    </script>
 
 </body>
 
